@@ -2,7 +2,7 @@
 
 ## 📋 Información General
 
-**Estudiante:** [Tu Nombre]  
+**Estudiante:** Ivan Alexander Fernandez Cañar  
 **Fecha:** 21 de noviembre de 2025  
 **Rama:** `feature/http-client`  
 **API Utilizada:** [PokéAPI](https://pokeapi.co)
@@ -97,247 +97,8 @@ Retorna los primeros 20 Pokémon con sus URLs
    // según la estructura de datos de tu API
    ```
 
-### Otras APIs Públicas Recomendadas:
 
-- **JSONPlaceholder**: `https://jsonplaceholder.typicode.com`
-- **Rick and Morty API**: `https://rickandmortyapi.com/api`
-- **Star Wars API (SWAPI)**: `https://swapi.dev/api`
-- **The Cat API**: `https://api.thecatapi.com/v1`
-- **Open Weather Map**: `https://api.openweathermap.org/data/2.5` (requiere API key)
-- **REST Countries**: `https://restcountries.com/v3.1`
 
-## 📸 Evidencias de Ejecución
-
-### 1. Consola del Navegador
-La consola muestra información detallada de cada petición:
-- ✅ URL solicitada
-- ✅ Método HTTP usado
-- ✅ Tiempo de respuesta en milisegundos
-- ✅ Código de estado HTTP
-- ✅ Request Headers completos
-- ✅ Response Headers completos
-- ✅ Datos de respuesta (JSON)
-- ✅ Información de CORS
-
-### 2. Pestaña Network (Developer Tools)
-Se puede observar:
-- ✅ Timeline de peticiones
-- ✅ Tamaño de la respuesta
-- ✅ Headers de request y response
-- ✅ Preview y Response de datos
-- ✅ Timing detallado
-
-### 3. Interfaz Gráfica
-- ✅ Resultados mostrados en tiempo real
-- ✅ Sistema de logs con historial
-- ✅ Badges de estado coloreados
-- ✅ Diseño responsivo que se adapta a móviles
-
-## ❓ Respuestas a Preguntas de Control
-
-### 1. ¿Qué diferencia existe entre un código de estado 200, 201, 400 y 500?
-
-- **200 OK**: Indica que la petición se procesó correctamente. El servidor devuelve los datos solicitados. Se usa principalmente con GET y PUT.
-
-- **201 Created**: Indica que la petición fue exitosa y como resultado se creó un nuevo recurso. Se usa típicamente con POST cuando se crea un nuevo registro.
-
-- **400 Bad Request**: Error del cliente. Indica que la petición tiene sintaxis incorrecta o no puede ser procesada por el servidor. Por ejemplo, falta un campo obligatorio o el formato JSON es inválido.
-
-- **500 Internal Server Error**: Error del servidor. Indica que el servidor encontró una situación inesperada que le impide completar la petición. Es un error genérico del lado del servidor.
-
-**Categorización:**
-- 2xx = Éxito
-- 4xx = Error del Cliente
-- 5xx = Error del Servidor
-
-### 2. ¿Qué función cumple CORS en una aplicación web?
-
-**CORS (Cross-Origin Resource Sharing)** es un mecanismo de seguridad implementado por los navegadores que permite o restringe peticiones HTTP entre diferentes dominios.
-
-**Funciones principales:**
-1. **Protección contra ataques maliciosos**: Previene que scripts de un dominio accedan a recursos de otro dominio sin autorización.
-
-2. **Control de acceso**: El servidor decide explícitamente qué orígenes pueden acceder a sus recursos mediante headers como:
-   - `Access-Control-Allow-Origin`: Define qué dominios pueden hacer peticiones
-   - `Access-Control-Allow-Methods`: Define qué métodos HTTP están permitidos
-   - `Access-Control-Allow-Headers`: Define qué headers puede enviar el cliente
-
-3. **Same-Origin Policy**: Por defecto, los navegadores bloquean peticiones cross-origin. CORS permite flexibilizar esta política de manera controlada.
-
-**Ejemplo práctico:**
-- Una aplicación en `https://mi-app.com` NO puede hacer peticiones a `https://api-externa.com` a menos que este último incluya el header `Access-Control-Allow-Origin: https://mi-app.com` o `Access-Control-Allow-Origin: *` (cualquier origen).
-
-### 3. ¿Cuál es la diferencia entre request headers y response headers?
-
-**Request Headers (Headers de Petición):**
-- **Origen**: Enviados por el **cliente** (navegador) al servidor
-- **Propósito**: Proporcionar información sobre la petición y el cliente
-- **Ejemplos**:
-  - `Content-Type`: Tipo de datos que envía el cliente (ej: application/json)
-  - `Accept`: Tipos de contenido que el cliente puede procesar
-  - `Authorization`: Credenciales de autenticación
-  - `User-Agent`: Información del navegador/cliente
-  - `Origin`: Dominio desde donde se origina la petición
-
-**Response Headers (Headers de Respuesta):**
-- **Origen**: Enviados por el **servidor** al cliente
-- **Propósito**: Proporcionar información sobre la respuesta y el servidor
-- **Ejemplos**:
-  - `Content-Type`: Tipo de datos que devuelve el servidor
-  - `Access-Control-Allow-Origin`: Política CORS del servidor
-  - `Cache-Control`: Directivas de caché
-  - `Set-Cookie`: Cookies que el servidor quiere establecer
-  - `Server`: Información del servidor web
-
-**Flujo:**
-```
-Cliente → [Request Headers] → Servidor
-Cliente ← [Response Headers] ← Servidor
-```
-
-### 4. ¿Por qué es importante documentar los tiempos de respuesta?
-
-La documentación de tiempos de respuesta es crucial por varios motivos:
-
-**1. Rendimiento y Experiencia de Usuario:**
-- Identificar endpoints lentos que afectan la UX
-- Establecer SLAs (Service Level Agreements)
-- Detectar degradación de rendimiento
-
-**2. Optimización:**
-- Comparar antes/después de optimizaciones
-- Identificar cuellos de botella
-- Priorizar qué optimizar primero
-
-**3. Monitoreo y Alertas:**
-- Establecer umbrales de alerta
-- Detectar problemas en producción tempranamente
-- Identificar patrones de degradación
-
-**4. Planificación de Capacidad:**
-- Estimar necesidades de infraestructura
-- Planificar escalamiento
-- Calcular costos de hosting
-
-**5. Debugging:**
-- Identificar problemas de red
-- Detectar timeouts
-- Analizar latencia en diferentes regiones
-
-**Métricas importantes:**
-- Tiempo de respuesta promedio
-- Percentiles (p50, p95, p99)
-- Tiempo máximo/mínimo
-- Tendencias temporales
-
-### 5. ¿Qué riesgos tiene exponer peticiones sin validar en el frontend?
-
-**Riesgos de Seguridad:**
-
-1. **Inyección de Código (XSS - Cross-Site Scripting):**
-   - Datos no validados pueden contener scripts maliciosos
-   - Afecta a otros usuarios que vean esos datos
-   - Puede robar cookies, tokens de sesión
-
-2. **Exposición de Datos Sensibles:**
-   - API keys, tokens o credenciales expuestas en el código frontend
-   - Cualquiera puede ver el código fuente del navegador
-   - Datos sensibles en URLs o localStorage
-
-3. **Ataques de Manipulación:**
-   - Los usuarios pueden modificar peticiones desde DevTools
-   - Cambiar parámetros, IDs, cantidades
-   - Acceder a recursos no autorizados
-
-4. **Falta de Sanitización:**
-   - Datos malformados pueden romper la aplicación
-   - SQL Injection si se pasan directamente a backend
-   - Path Traversal en rutas de archivos
-
-5. **CSRF (Cross-Site Request Forgery):**
-   - Sitios maliciosos pueden hacer peticiones en nombre del usuario
-   - Necesidad de tokens CSRF
-
-**Buenas Prácticas:**
-```javascript
-// ❌ MAL - Exponer API keys
-const API_KEY = "sk_live_123456789";
-
-// ✅ BIEN - Usar variables de entorno y proxy backend
-const response = await fetch('/api/proxy', {
-  // El backend maneja las credenciales
-});
-
-// ❌ MAL - No validar inputs
-fetch(`/api/users/${userId}`); // userId puede ser manipulado
-
-// ✅ BIEN - Validar y sanitizar
-if (!Number.isInteger(userId) || userId < 1) {
-  throw new Error('ID inválido');
-}
-```
-
-### 6. ¿Qué consideraciones de seguridad se deben mantener al exponer endpoints entre servicios?
-
-**Consideraciones de Seguridad Backend-to-Backend:**
-
-**1. Autenticación y Autorización:**
-- **API Keys**: Claves únicas por servicio
-- **OAuth 2.0**: Tokens de acceso con scopes limitados
-- **JWT (JSON Web Tokens)**: Tokens firmados con claims
-- **mTLS (Mutual TLS)**: Autenticación bidireccional con certificados
-
-**2. Cifrado de Comunicaciones:**
-- **HTTPS/TLS obligatorio**: Nunca HTTP en producción
-- **TLS 1.2+**: Versiones modernas y seguras
-- **Certificados válidos**: No self-signed en producción
-
-**3. Control de Acceso:**
-- **Principio de Menor Privilegio**: Solo acceso necesario
-- **Whitelist de IPs**: Restringir por IP origen
-- **Rate Limiting**: Límites de peticiones por servicio
-- **Firewall de Aplicación (WAF)**: Filtrar tráfico malicioso
-
-**4. Validación de Datos:**
-- **Validación de Schema**: JSON Schema, OpenAPI
-- **Sanitización**: Limpiar inputs peligrosos
-- **Límites de tamaño**: Prevenir DoS con payloads grandes
-- **Type checking**: Validar tipos de datos
-
-**5. Gestión de Secretos:**
-- **Nunca en código**: Usar variables de entorno
-- **Vaults de secretos**: HashiCorp Vault, AWS Secrets Manager
-- **Rotación de credenciales**: Cambiar periódicamente
-- **Separación por entorno**: Dev, staging, prod
-
-**6. Logging y Monitoreo:**
-- **Auditoría de accesos**: Quién accede a qué
-- **Detección de anomalías**: Patrones inusuales
-- **No loggear secretos**: Ocultar datos sensibles
-- **Alertas en tiempo real**: Notificar accesos sospechosos
-
-**7. Headers de Seguridad:**
-```
-Content-Security-Policy
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Strict-Transport-Security
-```
-
-**8. Manejo de Errores:**
-- **No exponer stack traces**: Info mínima al cliente
-- **Códigos genéricos**: No revelar detalles internos
-- **Logging detallado interno**: Para debugging
-
-**Ejemplo de arquitectura segura:**
-```
-[Frontend] → [API Gateway] → [Auth Service] → [Backend Services]
-              ↓
-           Rate Limit
-           API Key Validation
-           CORS
-           Request Validation
-```
 
 ## 🔧 Instrucciones de Uso
 
@@ -421,18 +182,13 @@ proyecto/
 
 ### HTTP Methods
 - **GET**: Obtener recursos (Pokémon, habilidades, tipos, listas)
-- **POST**: Crear recursos (no aplicable en PokéAPI - es solo lectura)
-- **PUT**: Actualizar recursos (no aplicable en PokéAPI)
-- **DELETE**: Eliminar recursos (no aplicable en PokéAPI)
+
 
 *Nota: PokéAPI es una API de solo lectura, por lo que solo soporta GET.*
 
 ### Códigos de Estado
 - **200 OK**: Respuesta exitosa con datos
-- **404 Not Found**: Recurso no encontrado (Pokémon inexistente)
-- **2xx**: Respuestas exitosas en general
-- **4xx**: Errores del cliente
-- **5xx**: Errores del servidor
+
 
 ### CORS
 - Política de seguridad del navegador
@@ -451,34 +207,7 @@ proyecto/
 - Reduce carga en el servidor
 - Mejora rendimiento para el cliente
 
-## 🚀 Mejoras Futuras
-
-- [ ] Implementar búsqueda avanzada con filtros
-- [ ] Agregar más endpoints (movimientos, regiones, ítems)
-- [ ] Sistema de favoritos con LocalStorage
-- [ ] Comparador de Pokémon
-- [ ] Gráficos de estadísticas con Chart.js
-- [ ] Modo offline con Service Workers
-- [ ] Paginación para listas grandes
-- [ ] Tests unitarios con Jest
-- [ ] Integración con otras APIs de juegos
-
-## 📝 Notas Adicionales
-
-- **API Pública**: PokéAPI es gratuita y no requiere autenticación
-- **CORS**: La API está configurada con `Access-Control-Allow-Origin: *` lo que permite peticiones desde cualquier origen
-- **Tiempos de respuesta**: Pueden variar según la conexión a internet y carga del servidor
-- **Caché**: PokéAPI usa caché de 24 horas, las peticiones repetidas serán más rápidas
-- **Browser DevTools**: Herramienta esencial para desarrollo web frontend
-- **Rate Limiting**: Sin límites oficiales, pero se recomienda usar caché local
-- **Datos**: Información completa de las 9 generaciones de Pokémon
-
-## 👨‍💻 Autor
-
-[Tu Nombre]  
-[Tu correo/contacto]  
-ACD Plataformas - 2025
-
 ---
 
 **Última actualización:** 21 de noviembre de 2025
+
