@@ -43,23 +43,6 @@
 | GET | https://pokeapi.co/api/v2/pokemon/pikachu | 200 OK | ~200-500 ms | `access-control-allow-origin: *` - Permite peticiones desde cualquier origen |
 | GET | https://pokeapi.co/api/v2/pokemon?limit=20 | 200 OK | ~250-600 ms | `access-control-allow-origin: *` - Sin restricciones de CORS |
 
-### 📋 Headers Observados
-
-#### Request Headers (enviados por el cliente)
-```
-Content-Type: application/json
-Accept: application/json
-Origin: [tu-dominio]
-User-Agent: Mozilla/5.0...
-```
-
-#### Response Headers (recibidos del servidor)
-```
-content-type: application/json; charset=utf-8
-access-control-allow-origin: *
-cache-control: public, max-age=86400, s-maxage=86400
-```
-
 ## ⚡ Endpoints de PokéAPI Utilizados
 
 ### 1. Obtener Pokémon Específico
@@ -73,32 +56,6 @@ Ejemplos: pikachu, 25, charizard, mewtwo
 GET https://pokeapi.co/api/v2/pokemon?limit=20
 Retorna los primeros 20 Pokémon con sus URLs
 ```
-
-## 🔧 Cómo Usar Diferentes APIs
-
-### Pasos para Cambiar la API:
-
-1. **Modificar la URL Base en `script.js`:**
-   ```javascript
-   const API_BASE_URL = 'https://tu-api.com/api';
-   ```
-
-2. **Actualizar los Endpoints:**
-   ```javascript
-   async function tuFuncion() {
-     const endpoint = '/tu-endpoint';
-     await realizarPeticion('GET', endpoint);
-   }
-   ```
-
-3. **Adaptar la Visualización:**
-   ```javascript
-   // En la función mostrarResultado(), adapta el HTML
-   // según la estructura de datos de tu API
-   ```
-
-
-
 
 ## 🔧 Instrucciones de Uso
 
@@ -183,9 +140,6 @@ proyecto/
 ### HTTP Methods
 - **GET**: Obtener recursos (Pokémon, habilidades, tipos, listas)
 
-
-*Nota: PokéAPI es una API de solo lectura, por lo que solo soporta GET.*
-
 ### Códigos de Estado
 - **200 OK**: Respuesta exitosa con datos
 
@@ -201,13 +155,7 @@ proyecto/
 - Response: Información enviada por el servidor
 - Content-Type, Accept, CORS headers, etc.
 
-### Caché HTTP
-- PokéAPI usa caché agresivo (86400 segundos = 24 horas)
-- Header: `cache-control: public, max-age=86400`
-- Reduce carga en el servidor
-- Mejora rendimiento para el cliente
 
 ---
 
-**Última actualización:** 21 de noviembre de 2025
 
