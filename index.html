@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Práctica de simulación de peticiones HTTP con métodos REST usando PokéAPI">
+  <title>Simulación de Peticiones HTTP - PokéAPI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>⚡ Práctica de Peticiones HTTP con PokéAPI</h1>
+    <p>Implementación de métodos REST consumiendo datos de Pokémon</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <h2>Realizar Peticiones HTTP</h2>
+      <div class="button-group">
+        <button id="btnGetPokemon" class="btn btn-get">🔍 GET Pokémon</button>
+        <button id="btnGetList" class="btn btn-post">📋 GET Lista</button>
+      </div>
+      <div class="input-group">
+        <label for="pokemonInput">Nombre o ID del Pokémon (ej: pikachu, 25, charizard):</label>
+        <input type="text" id="pokemonInput" value="pikachu" placeholder="pikachu">
+      </div>
+    </section>
+
+    <section class="results">
+      <h2>Resultados</h2>
+      <div id="resultado" class="resultado-container">
+        <p class="placeholder">Haz clic en algún botón para realizar una petición HTTP...</p>
+      </div>
+    </section>
+
+    <section class="logs">
+      <h2>Registro de Peticiones</h2>
+      <div class="log-controls">
+        <button id="btnClearLogs" class="btn btn-secondary">🧹 Limpiar Logs</button>
+      </div>
+      <div id="logContainer" class="log-container">
+        <p class="placeholder">Los logs aparecerán aquí...</p>
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>📚 Información de la Práctica</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>🎯 Objetivo</h3>
+          <p>Comprender y aplicar conceptos de HTTP/HTTPS, métodos REST, códigos de estado y CORS consumiendo datos reales de Pokémon.</p>
+        </div>
+        <div class="info-card">
+          <h3>⚡ API Utilizada</h3>
+          <p><strong>PokéAPI:</strong> API REST pública con información completa sobre Pokémon, habilidades, tipos, movimientos y más.</p>
+          <p><small>URL: <a href="https://pokeapi.co" target="_blank">pokeapi.co</a></small></p>
+          <p><small>Documentación: <a href="https://pokeapi.co/docs/v2" target="_blank">pokeapi.co/docs/v2</a></small></p>
+        </div>
+        <div class="info-card">
+          <h3>📊 Códigos de Estado</h3>
+          <ul>
+            <li><strong>200:</strong> OK - Petición exitosa</li>
+            <li><strong>201:</strong> Created - Recurso creado exitosamente</li>
+            <li><strong>400:</strong> Bad Request - Error en la petición</li>
+            <li><strong>404:</strong> Not Found - Recurso no encontrado</li>
+            <li><strong>500:</strong> Internal Server Error - Error del servidor</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>🔍 Herramientas de Análisis</h3>
+          <p>Abre las <strong>Developer Tools</strong> (F12) y revisa:</p>
+          <ul>
+            <li><strong>Console:</strong> Logs detallados de cada petición</li>
+            <li><strong>Network:</strong> Headers, tiempos de respuesta, CORS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Práctica de HTTP/REST - ACD Plataformas | <span id="fecha"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
