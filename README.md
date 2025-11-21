@@ -104,14 +104,6 @@ Retorna los primeros 20 Pokémon con sus URLs
 - dragonite (ID: 149)
 - levitate
 
-**Tipos:**
-- fire
-- water
-- electric
-- grass
-- psychic
-- dragon
-
 ### Análisis de Resultados
 
 1. **Abrir Developer Tools** (F12)
@@ -157,5 +149,6 @@ proyecto/
 
 
 ---
+
 
 
